@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://dd7h162ujf41t"]
+
+[ext_resource type="Script" path="res://scenes/audio manager/AudioManager.gd" id="1_c084l"]
+[ext_resource type="AudioStream" uid="uid://dt8npwhwobyhb" path="res://assets/audio/SFX/correctanswer.wav" id="2_xus6w"]
+[ext_resource type="AudioStream" uid="uid://og64wua0tqmn" path="res://assets/audio/SFX/incorrectanswer.wav" id="3_iwk7b"]
+[ext_resource type="AudioStream" uid="uid://bjchg5cyq5v3n" path="res://assets/audio/SFX/clickbutton.wav" id="4_o7xig"]
+[ext_resource type="AudioStream" uid="uid://bcpxmyll5ybbx" path="res://assets/audio/Music/GameOver.wav" id="5_5gvxx"]
+[ext_resource type="AudioStream" uid="uid://7is5u0hy18e7" path="res://assets/audio/SFX/pause.wav" id="5_ktpck"]
+[ext_resource type="AudioStream" uid="uid://3nta38c1sjlh" path="res://assets/audio/SFX/unpause.wav" id="6_36jta"]
+[ext_resource type="AudioStream" uid="uid://c4r7skv5pccqd" path="res://assets/audio/SFX/switch.wav" id="7_cq165"]
+[ext_resource type="AudioStream" uid="uid://bhxrj4ml5idvo" path="res://assets/audio/Music/MainMenu.wav" id="8_eqyfu"]
+[ext_resource type="AudioStream" uid="uid://vef13jrmux30" path="res://assets/audio/Music/Song1.wav" id="9_r0ue0"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_c084l")
+
+[node name="Correct" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xus6w")
+bus = &"SFX"
+
+[node name="Incorrect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iwk7b")
+bus = &"SFX"
+
+[node name="ClickButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_o7xig")
+bus = &"SFX"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5gvxx")
+bus = &"Music"
+
+[node name="Pause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ktpck")
+bus = &"SFX"
+
+[node name="Unpause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_36jta")
+bus = &"SFX"
+
+[node name="SwitchLane" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cq165")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="MainMenuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_eqyfu")
+bus = &"Music"
+
+[node name="RunningTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_r0ue0")
+bus = &"Music"

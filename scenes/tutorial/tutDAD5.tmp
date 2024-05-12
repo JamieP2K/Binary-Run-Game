@@ -1,0 +1,330 @@
+[gd_scene load_steps=2 format=3 uid="uid://h44hhtshxso7"]
+
+[ext_resource type="Script" path="res://scenes/tutorial/tutorial.gd" id="1_k530c"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k530c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.526784, 0.549926, 0.515297, 1)
+
+[node name="Pages" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Page1" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 77.0
+offset_right = 1065.0
+offset_bottom = 550.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center] [b]Welcome To Binary Run![/b] [/center]
+
+[center]Before you get started, you must first understand a fundamental aspect to this game, binary conversion. More specifically converting decimal numbers to and from binary numbers.
+
+This short tutorial will cover the basics of conversion giving you the knowledge you need to play. It will then teach you the basics of the game itself! 
+
+
+Press ESCAPE at any time to return to the main menu.[/center]"
+scroll_active = false
+
+[node name="Page2" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 77.0
+offset_right = 1065.0
+offset_bottom = 550.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 29
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center] [b]Binary Conversion[/b] [/center]
+
+Let's learn how to convert decimal (normal numbers) to binary.
+
+First off, there are a few rules you should know about:
+[ul]
+Binary numbers are made up of bits (each bit is a 1 or 0)
+[ul]
+A number made up of 4 bits is a 4 bit number (max of 15 decimal value) and a number of 8 bits is an 8 bit number (max of 255 decimal value) [/ul]
+If a bit is 0, it is valueless
+If a bit is 1, the position of the 1 within the larger number dictates it's value.
+[/ul]"
+scroll_active = false
+
+[node name="Page3" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 77.0
+offset_right = 1065.0
+offset_bottom = 550.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 21
+theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "[center] [b]Binary Conversion[/b] [/center]
+
+Those rules may be hard to understand at first so here is an example:
+[center](position of a digit is indicated in italics beneath the number)[/center]
+
+[center][b]1001[/b][/center]
+[i]																				4    3     2    1[/i]
+Starting from right to left, the position of the digit dictates it's value as 2 to the power of the position.
+
+The furthest right digit is a 1 and it is in the first place so the value of this digit is 1 (2^1 = 1).
+
+The furthest left digit is also 1 and it is in the fourth place so the value of this digit is 8 (2^4 = 8).
+
+The decimal value of 1001 is 9 (8+1 = 9)."
+scroll_active = false
+
+[node name="Page4" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 77.0
+offset_right = 1065.0
+offset_bottom = 569.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center] [b]Binary Conversion[/b] [/center]
+
+Here's another trick to do conversion with another example:
+
+[center][b]1111[/b][/center]
+[i]																									4      3      2       1[/i]
+
+Since the value of a digit is 2 to the power of it's position, we can also just double the value of the digit for each digit from right to left.
+
+For example:
+
+Position 1 = 1
+Position 2 = 2
+Position 3 = 4
+Position 4 = 8
+
+Add them all together and the value is 15 (1 + 2 + 4 + 8)."
+scroll_active = false
+
+[node name="Page5" type="RichTextLabel" parent="Pages"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 77.0
+offset_right = 1065.0
+offset_bottom = 569.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center] [b]Binary Conversion[/b] [/center]
+
+[center]Here's some examples for you to try! Click the \"Answers\" button to see the correct answer![/center]
+[b]
+1100 =
+0011 =
+1010 = 
+1101 =
+[/b]"
+scroll_active = false
+
+[node name="1100Answer" type="LineEdit" parent="Pages/Page5"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 232.0
+offset_right = 445.0
+offset_bottom = 288.0
+
+[node name="Label" type="Label" parent="Pages/Page5/1100Answer"]
+visible = false
+layout_mode = 0
+offset_left = 246.0
+offset_top = -13.0
+offset_right = 327.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 55
+text = "12"
+
+[node name="0011Answer" type="LineEdit" parent="Pages/Page5"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 314.0
+offset_right = 445.0
+offset_bottom = 370.0
+
+[node name="Label2" type="Label" parent="Pages/Page5/0011Answer"]
+visible = false
+layout_mode = 0
+offset_left = 246.0
+offset_top = -14.0
+offset_right = 327.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 55
+text = "3"
+
+[node name="1010Answer" type="LineEdit" parent="Pages/Page5"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 397.0
+offset_right = 445.0
+offset_bottom = 453.0
+
+[node name="Label3" type="Label" parent="Pages/Page5/1010Answer"]
+visible = false
+layout_mode = 0
+offset_left = 247.0
+offset_top = -14.0
+offset_right = 328.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 55
+text = "10"
+
+[node name="1101Answer" type="LineEdit" parent="Pages/Page5"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 481.0
+offset_right = 445.0
+offset_bottom = 537.0
+
+[node name="Label4" type="Label" parent="Pages/Page5/1101Answer"]
+visible = false
+layout_mode = 0
+offset_left = 250.0
+offset_top = -17.0
+offset_right = 331.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 55
+text = "13"
+
+[node name="CheckAnswers" type="Button" parent="Pages/Page5"]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 246.0
+offset_right = 982.0
+offset_bottom = 399.0
+theme_override_font_sizes/font_size = 44
+text = "Answers"
+
+[node name="Page6" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 77.0
+offset_right = 1065.0
+offset_bottom = 569.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center] [b]Playing Binary Run[/b] [/center]
+
+[center]Now that you understand binary conversion, playing Binary Run is easy![/center]
+
+[center][img=480x270]res://assets/backgrounds/tutorial.png[/img] [/center]
+
+Text in [color=red]red[/color] indicates the target number. This is the number you are trying to reach.
+Text in [color=green]green[/color] indicates a potential answer. Run through the gate that is the correct conversion to the target number! "
+scroll_active = false
+
+[node name="Page7" type="RichTextLabel" parent="Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 77.0
+offset_right = 1065.0
+offset_bottom = 569.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center] [b]Playing Binary Run[/b] [/center]
+
+[center]
+Correct answers give you a point added to your score.
+
+Correct answers also slightly speed you up. Getting a lot of correct answers will very quickly make the game more and more frantic!
+
+Incorrect answers lose you a life.
+
+You start with 5 lives; lose all of them and it is game over!
+
+That's all you need to know to play!
+
+[b] GOOD LUCK, HAVE FUN![/b]"
+scroll_active = false
+
+[node name="Back" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -90.0
+offset_right = 255.0
+offset_bottom = -3.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 57
+text = "Back"
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -91.0
+offset_right = -10.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 57
+text = "Next"
+
+[connection signal="button_down" from="Pages/Page5/CheckAnswers" to="." method="_on_check_answers_button_down"]
+[connection signal="button_down" from="Back" to="." method="_on_back_button_down"]
+[connection signal="button_down" from="Next" to="." method="_on_next_button_down"]

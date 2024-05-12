@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdadpikty5i4b"]
+
+[ext_resource type="Script" path="res://scenes/runner/level.gd" id="1_sagjc"]
+[ext_resource type="PackedScene" uid="uid://cru1l0tws2wib" path="res://modules/module1.tscn" id="2_2s7td"]
+[ext_resource type="PackedScene" uid="uid://bke63bjbj5gf3" path="res://modules/module0.tscn" id="2_ouwxy"]
+[ext_resource type="Script" path="res://scenes/runner/runner.gd" id="4_etlx5"]
+[ext_resource type="PackedScene" uid="uid://bvrp00e7f483i" path="res://scenes/pause/pause.tscn" id="5_ytyct"]
+[ext_resource type="Texture2D" uid="uid://lcjhtfnjgxeb" path="res://assets/sprites/Sprite-0002.png" id="7_3p8hb"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4atf1"]
+
+[sub_resource type="Sky" id="Sky_aqf0r"]
+sky_material = SubResource("PhysicalSkyMaterial_4atf1")
+
+[sub_resource type="Environment" id="Environment_hk68f"]
+background_mode = 1
+sky = SubResource("Sky_aqf0r")
+ambient_light_source = 3
+fog_light_color = Color(0.517647, 0.552941, 0.607843, 1)
+fog_density = 1.0
+adjustment_brightness = 8.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onlry"]
+size = Vector3(0.7, 0.7, 10.9675)
+
+[node name="main" type="Node3D"]
+
+[node name="Level" type="Node3D" parent="."]
+script = ExtResource("1_sagjc")
+modules = Array[PackedScene]([ExtResource("2_ouwxy"), ExtResource("2_2s7td")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hk68f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.702692, -0.656933, 0.273243, -0.0493662, 0.338099, 0.939815, -0.709779, -0.67389, 0.205149, 0, 0, 0)
+light_color = Color(0.533333, 0.462745, 0.0352941, 1)
+light_energy = 16.0
+light_indirect_energy = 14.333
+light_volumetric_fog_energy = 16.0
+sky_mode = 2
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.21286e-08, 0.113793, -0.993505, -1.16564e-08, 0.993505, 0.113793, 1, 1.63746e-08, -4.05285e-08, -10.7484, 0.920616, 0)
+current = true
+fov = 41.265
+
+[node name="Player" type="Area3D" parent="."]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -8.00816, 0.398855, 0)
+script = ExtResource("4_etlx5")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player"]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("7_3p8hb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.999865, 0, 1.77636e-14, 0, 0.999865, 0, -1.77636e-14, 0, 0.999865, 1.13687e-13, 0, -5.46798)
+shape = SubResource("BoxShape3D_onlry")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="UIElements" type="Control" parent="HUD"]
+layout_mode = 3
+anchor_right = 0.741319
+anchor_bottom = 0.905864
+offset_right = 299.0
+offset_bottom = 62.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="HUD/UIElements"]
+layout_mode = 1
+offset_right = 190.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = "Score: 0"
+vertical_alignment = 1
+
+[node name="Question" type="Label" parent="HUD/UIElements"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_right = 95.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "GET READY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lives" type="Label" parent="HUD/UIElements"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -190.0
+offset_bottom = 69.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "0♥︎"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Pause_Menu" parent="HUD" instance=ExtResource("5_ytyct")]
+visible = false
