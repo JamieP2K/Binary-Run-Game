@@ -11,8 +11,6 @@
 - [Directory Structure](#directory-structure)
 - [How to Modify the Game](#how-to-modify-the-game)
 - [Requirements](#requirements)
-- [Contribution Guidelines](#contribution-guidelines)
-- [License](#license)
 
 ---
 
